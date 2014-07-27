@@ -34,6 +34,4 @@ class Surround
       if e.active
         e.vimState.activateCommandMode()
 
-
-
 module.exports = new Surround()

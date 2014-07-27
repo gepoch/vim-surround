@@ -3,6 +3,9 @@
 Surround is an implementation of vim-surround for the [atom](http://atom.io)
 editor. vim-mode is required to use this package.
 
+Inspiration from and kudos to the wonderful [vim-surround for
+vim](https://github.com/tpope/vim-surround)
+
 Currently, this supports visual mode's `s )` set of commands for a configurable
 set of pairs.
 
