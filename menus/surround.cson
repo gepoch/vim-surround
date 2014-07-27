@@ -1,0 +1,16 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Enable surround': 'surround:toggle'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'surround'
+      'submenu': [
+        { 'label': 'Toggle', 'command': 'surround:toggle' }
+      ]
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "name": "surround",
+  "main": "./lib/surround",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "repository": "https://github.com/atom/surround",
+  "activationEvents": ["surround:activate"],
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}
