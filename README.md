@@ -43,8 +43,8 @@ Currently, the following pairs work out of the box!:
 - ""
 - ''
 
-You can add to the available pairs in atom's settings, and add your own
-bindings to the new surround functions in your keymap.
+You can add to the available pairs in atom's settings, and the commands will
+be dynamically added to your keybindings.
 
 For example if I wanted to add the pair '<>', I would add this in my settings:
 
@@ -52,12 +52,18 @@ For example if I wanted to add the pair '<>', I would add this in my settings:
 (), [], {}, "", '', <>
 ```
 
-And I would add these in my keymap:
+Then:
+
+`s >`
 
 ```
-.editor.vim-mode.visual-mode:
-  's <': 'surround:surround-<'
-  's >': 'surround:surround->'
+Hello world -> <Hello world>
+```
+
+`s <`
+
+```
+Hello world -> < Hello world >
 ```
 
 ### TODO
