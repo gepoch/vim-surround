@@ -19,22 +19,21 @@ class Surround
     right = pair[length/2..]
 
     if right != left
-      @workspaceView.command "surround:surround-#{left}", ->
-        editor = atom.workspace.activePaneItem
-        selection = editor.getSelection()
-        text = selection.getText()
-        selection.insertText("#{left} #{text} #{right}")
-        atom.workspaceView.getEditorViews().forEach (e) ->
-          if e.active
-            e.vimState.activateCommandMode()
+      @workspaceView.command "surround:surround-#{left}", do (left, right) =>
+        @getSurrounder "#{left} ", " #{right}"
 
-    @workspaceView.command "surround:surround-#{right}", ->
-      editor = atom.workspace.activePaneItem
-      selection = editor.getSelection()
-      text = selection.getText()
-      selection.insertText("#{left}#{text}#{right}")
-      atom.workspaceView.getEditorViews().forEach (e) ->
-        if e.active
-          e.vimState.activateCommandMode()
+    @workspaceView.command "surround:surround-#{right}",  do (left, right) =>
+      @getSurrounder left, right
+
+  getSurrounder: (left, right) -> ->
+    editor = atom.workspace.activePaneItem
+    selection = editor.getSelection()
+    text = selection.getText()
+    selection.insertText("#{left}#{text}#{right}")
+    atom.workspaceView.getEditorViews().forEach (e) ->
+      if e.active
+        e.vimState.activateCommandMode()
+
+
 
 module.exports = new Surround()
