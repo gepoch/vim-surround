@@ -8,17 +8,31 @@ set of pairs.
 
 ## How to use Surround
 
-For double quotes, highlight the string in visual mode and enter `c s "`.
+For double quotes, highlight the string in visual mode and enter `s "`.
 
 ```
 Hello world -> "Hello world"
 ```
 
-For parentheses there are two options. `c s )` will surround as normal. `c s (`
-will pad with a space. All assymetrical pairs have the secondary space-padded
+For parentheses there are two options. `s )` will surround as normal. `s (`
+will pad with a space. All asymmetrical pairs have the secondary space-padded
 form.
 
-Currently, the following pairs are supported:
+For example:
+
+`s )`
+
+```
+Hello world -> (Hello world)
+```
+
+`s (`
+
+```
+Hello world -> ( Hello world )
+```
+
+Currently, the following pairs work out of the box!:
 
 - ()
 - []
