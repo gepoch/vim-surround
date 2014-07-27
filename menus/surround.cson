@@ -1,7 +1,7 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
   '.overlayer':
-      'Enable surround': 'surround:toggle'
+    'Enable surround': 'surround:activate'
 
 'menu': [
   {
@@ -9,7 +9,7 @@
     'submenu': [
       'label': 'surround'
       'submenu': [
-        { 'label': 'Toggle', 'command': 'surround:toggle' }
+        { 'label': 'Activate', 'command': 'surround:activate' }
       ]
     ]
   }
