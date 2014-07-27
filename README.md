@@ -45,4 +45,6 @@ bindings in your keymap.
 
 ### TODO
 
-Implement changing surrounding pairs with `c s`
+- [ ] Implement changing surrounding pairs with `c s`
+- [ ] Implement deleting surrounding pairs with `d s`
+- [ ] Intelligent tag surrounding/deleting/replacing with `s <q>` and friends.
