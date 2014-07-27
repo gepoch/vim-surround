@@ -2,8 +2,8 @@
   "name": "surround",
   "main": "./lib/surround",
   "version": "0.0.0",
-  "description": "A short description of your package",
-  "repository": "https://github.com/atom/surround",
+  "description": "vim-surround for Atom!",
+  "repository": "https://github.com/gepoch/surround",
   "activationEvents": ["surround:activate"],
   "license": "MIT",
   "engines": {
