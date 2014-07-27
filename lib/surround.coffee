@@ -4,10 +4,11 @@ class Surround
     pairs: ['()', '{}', '[]', '""', "''"]
 
   constructor: () ->
+
+  activate: (state) ->
     @workspaceView = atom.workspaceView
     @keymap = atom.keymap
 
-  activate: (state) ->
     atom.config.observe 'vim-surround.pairs', @registerPairs
 
   registerPairs: (pairs) =>
@@ -24,16 +25,11 @@ class Surround
     @createPairBindings right, left, right
 
   createPairBindings: (key, left, right) ->
-
-    console.log key, left, right
-
     @workspaceView.command "surround:surround-#{key}", do (left, right) =>
       @getSurrounder left, right
 
     command = {}
     command["s #{key}"] = "surround:surround-#{key}"
-
-    console.log command
 
     @keymap.add "surround:surround-#{key}",
       ".editor.vim-mode.visual-mode": command

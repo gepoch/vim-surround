@@ -7,12 +7,3 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
-'.editor.vim-mode.visual-mode':
-  's (': 'surround:surround-('
-  's )': 'surround:surround-)'
-  's [': 'surround:surround-['
-  's ]': 'surround:surround-]'
-  's {': 'surround:surround-{'
-  's }': 'surround:surround-}'
-  's "': 'surround:surround-"'
-  "s '": "surround:surround-'"

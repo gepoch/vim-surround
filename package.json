@@ -4,16 +4,6 @@
   "version": "0.1.8",
   "description": "vim-surround for Atom!",
   "repository": "https://github.com/gepoch/vim-surround",
-  "activationEvents": [
-    "surround:surround-(",
-    "surround:surround-)",
-    "surround:surround-[",
-    "surround:surround-]",
-    "surround:surround-{",
-    "surround:surround-}",
-    "surround:surround-\"",
-    "surround:surround-'"
-  ],
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
