@@ -1,5 +1,5 @@
 {
-  "name": "surround",
+  "name": "vim-surround",
   "main": "./lib/surround",
   "version": "0.1.4",
   "description": "vim-surround for Atom!",

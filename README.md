@@ -1,7 +1,7 @@
-# Surround for Atom
+# Vim Surround for Atom
 
-Surround is an implementation of vim-surround for the atom editor. vim-mode is
-required to use this package.
+Surround is an implementation of vim-surround for the [atom](http://atom.io)
+editor. vim-mode is required to use this package.
 
 Currently, this supports visual mode's `s )` set of commands for a configurable
 set of pairs.
@@ -41,7 +41,21 @@ Currently, the following pairs work out of the box!:
 - ''
 
 You can add to the available pairs in atom's settings, and add your own
-bindings in your keymap.
+bindings to the new surround functions in your keymap.
+
+For example if I wanted to add the pair '<>', I would add this in my settings:
+
+```
+(), [], {}, "", '', <>
+```
+
+And I would add these in my keymap:
+
+```
+.editor.vim-mode.visual-mode:
+  's <': 'surround:surround-<'
+  's >': 'surround:surround->'
+```
 
 ### TODO
 
