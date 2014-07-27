@@ -7,7 +7,7 @@ class Surround
     @workspaceView = atom.workspaceView
 
   activate: (state) ->
-    atom.config.observe 'surround.pairs', @registerPairs
+    atom.config.observe 'vim-surround.pairs', @registerPairs
 
   registerPairs: (pairs) =>
     pairs.forEach @registerPair
