@@ -46,24 +46,24 @@ Currently, the following pairs work out of the box!:
 You can add to the available pairs in atom's settings, and the commands will
 be dynamically added to your keybindings.
 
-For example if I wanted to add the pair '<>', I would add this in my settings:
+For example if I wanted to add the pair '/\', I would add this in my settings:
 
 ```
-(), [], {}, "", '', <>
+(), [], {}, "", '', /\
 ```
 
 Then:
 
-`s >`
+`s \`
 
 ```
-Hello world -> <Hello world>
+Hello world -> /Hello world\
 ```
 
-`s <`
+`s /`
 
 ```
-Hello world -> < Hello world >
+Hello world -> / Hello world \
 ```
 
 ### TODO
