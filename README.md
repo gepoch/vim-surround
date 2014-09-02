@@ -6,6 +6,9 @@ editor. vim-mode is required to use this package.
 Inspiration from and kudos to the wonderful [vim-surround for
 vim](https://github.com/tpope/vim-surround)
 
+See vim-surround on [github](https://github.com/gepoch/vim-surround) or
+[atom.io](https://atom.io/packages/vim-surround).
+
 Currently, this supports visual mode's `s )` set of commands for a configurable
 set of pairs.
 
