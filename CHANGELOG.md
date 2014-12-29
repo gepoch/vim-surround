@@ -1,3 +1,6 @@
+## 0.2.3
+* Fixed bug: [vim-surround #5](https://github.com/gepoch/vim-surround/issues/5)
+
 ## 0.2.0 - Activation and Keybindings Improved.
 * Keybindings are now dynamically generated from the configured pairs. No more
   user keybindings changes necessary!

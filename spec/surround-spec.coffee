@@ -11,7 +11,7 @@ describe "Surround", ->
 
   beforeEach ->
     atom.workspaceView = new WorkspaceView
-    activationPromise = atom.packages.activatePackage('surround')
+    activationPromise = atom.packages.activatePackage('vim-surround')
 
   describe "when the surround:toggle event is triggered", ->
     it "attaches and then detaches the view", ->

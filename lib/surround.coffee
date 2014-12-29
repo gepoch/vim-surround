@@ -1,4 +1,3 @@
-
 class Surround
   configDefaults:
     pairs: ['()', '{}', '[]', '""', "''"]
@@ -41,6 +40,6 @@ class Surround
     selection.insertText("#{left}#{text}#{right}")
     atom.workspaceView.getEditorViews().forEach (e) ->
       if e.active
-        e.vimState.activateCommandMode()
+        atom.commands.dispatch(e.element, 'vim-mode:reset-command-mode')
 
 module.exports = new Surround()
