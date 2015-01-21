@@ -1,7 +1,9 @@
 # Vim Surround for Atom
 
 Surround is an implementation of vim-surround for the [atom](http://atom.io)
-editor. vim-mode is required to use this package.
+editor, creating a vim-surround with the power of Atom!
+[vim-mode](https://atom.io/packages/vim-mode) is required for this package to
+function properly.
 
 Inspiration from and kudos to the wonderful [vim-surround for
 vim](https://github.com/tpope/vim-surround)
@@ -11,6 +13,8 @@ See vim-surround on [github](https://github.com/gepoch/vim-surround) or
 
 Currently, this supports visual mode's `s )` set of commands for a configurable
 set of pairs.
+
+
 
 ## How to use Surround
 
@@ -37,6 +41,9 @@ Hello world -> (Hello world)
 ```
 Hello world -> ( Hello world )
 ```
+
+New in 0.4: Multiple cursors are now supported, and conveniently work just
+like you think they do.
 
 Currently, the following pairs work out of the box!:
 
