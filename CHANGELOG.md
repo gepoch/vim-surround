@@ -1,3 +1,6 @@
+## 0.3.0
+* Updated for Atom API v1.0.0 changes.
+
 ## 0.2.3
 * Fixed bug: [vim-surround #5](https://github.com/gepoch/vim-surround/issues/5)
 
