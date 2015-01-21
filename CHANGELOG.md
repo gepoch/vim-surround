@@ -1,3 +1,6 @@
+## 0.4.0
+* Multiple cursor support.
+
 ## 0.3.0
 * Updated for Atom API v1.0.0 changes.
 

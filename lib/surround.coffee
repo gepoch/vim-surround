@@ -35,8 +35,9 @@ class Surround
 
   getSurrounder: (left, right) -> ->
     editor = atom.workspace.getActiveTextEditor()
-    selection = editor.getSelection()
-    text = selection.getText()
-    selection.insertText "#{left}#{text}#{right}"
+    editor.transact ->
+      editor.selections.forEach (selection) ->
+        text = selection.getText()
+        selection.insertText "#{left}#{text}#{right}"
 
 module.exports = new Surround()
