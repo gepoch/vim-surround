@@ -2,8 +2,9 @@
 
 Surround is an implementation of vim-surround for the [atom](http://atom.io)
 editor, creating a vim-surround with the power of Atom!
-[vim-mode](https://atom.io/packages/vim-mode) is required for this package to
-function properly.
+
+You should definitely have [vim-mode](https://atom.io/packages/vim-mode) for
+this package to function properly, of course.
 
 Inspiration from and kudos to the wonderful [vim-surround for
 vim](https://github.com/tpope/vim-surround)
@@ -11,10 +12,15 @@ vim](https://github.com/tpope/vim-surround)
 See vim-surround on [github](https://github.com/gepoch/vim-surround) or
 [atom.io](https://atom.io/packages/vim-surround).
 
-Currently, this supports visual mode's `s )` set of commands for a configurable
-set of pairs.
+## News
 
+* This package supports visual mode's `s )` set of commands for a configurable
+  set of pairs.
 
+* Next on the roadmap are pair deletions with `d )` and friends.
+
+* New in 0.4: Multiple cursors are now supported, and conveniently work just
+  like you think they do.
 
 ## How to use Surround
 
@@ -41,9 +47,6 @@ Hello world -> (Hello world)
 ```
 Hello world -> ( Hello world )
 ```
-
-New in 0.4: Multiple cursors are now supported, and conveniently work just
-like you think they do.
 
 Currently, the following pairs work out of the box!:
 
@@ -78,6 +81,6 @@ Hello world -> / Hello world \
 
 ### TODO
 
-- [ ] Implement changing surrounding pairs with `c s`
 - [ ] Implement deleting surrounding pairs with `d s`
+- [ ] Implement changing surrounding pairs with `c s`
 - [ ] Intelligent tag surrounding/deleting/replacing with `s <q>` and friends.

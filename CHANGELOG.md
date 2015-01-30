@@ -1,3 +1,8 @@
+## 0.4.1
+* Renamed the dynamic keybindings to match the package name.
+* Added some tests.
+* Poked the README.
+
 ## 0.4.0
 * Multiple cursor support.
 
