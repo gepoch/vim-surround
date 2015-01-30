@@ -24,13 +24,13 @@ class Surround
 
   createPairBindings: (key, left, right) ->
     atom.commands.add(
-      "atom-text-editor", "surround:surround-#{key}", do (left, right) =>
+      "atom-text-editor", "vim-surround:surround-#{key}", do (left, right) =>
         @getSurrounder left, right)
 
     command = {}
-    command["s #{key}"] = "surround:surround-#{key}"
+    command["s #{key}"] = "vim-surround:surround-#{key}"
 
-    @keymap.add "surround:surround-#{key}",
+    @keymap.add "vim-surround:surround-#{key}",
       ".editor.vim-mode.visual-mode": command
 
   getSurrounder: (left, right) -> ->

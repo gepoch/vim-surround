@@ -1,30 +1,41 @@
-{WorkspaceView} = require 'atom'
-Surround = require '../lib/surround'
+helpers = require './spec-helper'
 
-# Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
-#
-# To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
-# or `fdescribe`). Remove the `f` to unfocus the block.
+pairs = ['()', '{}', '[]', '""', "''"]
 
-describe "Surround", ->
-  activationPromise = null
+describe "Surround setup", ->
+  [editor, editorElement, vimSurround, configPairs] = []
 
   beforeEach ->
-    atom.workspaceView = new WorkspaceView
-    activationPromise = atom.packages.activatePackage('vim-surround')
+    atom.config.set('vim-surround.pairs', pairs)
 
-  describe "when the surround:toggle event is triggered", ->
-    it "attaches and then detaches the view", ->
-      expect(atom.workspaceView.find('.surround')).not.toExist()
+    vimSurround = atom.packages.loadPackage('vim-surround')
+    vimSurround.activate()
 
-      # This is an activation event, triggering it will cause the package to be
-      # activated.
-      atom.workspaceView.trigger 'surround:toggle'
+    configPairs = atom.config.get('vim-surround.pairs')
 
-      waitsForPromise ->
-        activationPromise
+    helpers.getEditorElement (element) ->
+      editorElement = element
+      editor = editorElement.getModel()
 
-      runs ->
-        expect(atom.workspaceView.find('.surround')).toExist()
-        atom.workspaceView.trigger 'surround:toggle'
-        expect(atom.workspaceView.find('.surround')).not.toExist()
+      editorClassList = editorElement.classList
+
+      editorClassList.add('editor')
+      editorClassList.add('vim-mode')
+      editorClassList.add('visual-mode')
+
+  describe "when the vim-surround module loads", ->
+    it "Creates a surround command for each configured pair character", ->
+      chars = []
+      pairs.forEach (pair) ->
+        for i in [0..pair.length-1]
+          char = pair[i]
+          chars.push char unless char in chars
+
+      commands = atom.commands.findCommands target: editorElement
+
+      names = []
+      commands.forEach (command) ->
+        names.push(command.name)
+
+      chars.forEach (char) ->
+        expect(names).toContain("vim-surround:surround-#{char}")
