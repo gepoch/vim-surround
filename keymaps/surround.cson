@@ -1,9 +1,7 @@
-# Keybindings require three things to be fully defined: A selector that is
-# matched against the focused element, the keystroke and the command to
-# execute.
-#
-# Below is a basic keybinding which registers on all platforms by applying to
-# the root workspace element.
+# OOPS! Good job with your dilligent hunting, but vim-surround's keybindings
+# are actually completely dynamic, so it doesn't use this file.... So I'll use
+# this as a guest book. Send me a PR!
 
-# For more detailed documentation see
-# https://atom.io/docs/latest/advanced/keymaps
+# # OFFICIAL VIM-SURROUND GUEST BOOK :+1:
+
+# George Marchin ~ Hi Mom!
