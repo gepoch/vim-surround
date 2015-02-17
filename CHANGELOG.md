@@ -1,3 +1,7 @@
+## 0.4.2
+* Fixed bug [vim-surround #11](https://github.com/gepoch/vim-surround/issues/11)
+* Readme updates.
+
 ## 0.4.1
 * Renamed the dynamic keybindings to match the package name.
 * Added some tests.
