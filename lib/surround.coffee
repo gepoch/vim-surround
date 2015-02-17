@@ -27,8 +27,18 @@ class Surround
       "atom-text-editor", "vim-surround:surround-#{key}", do (left, right) =>
         @getSurrounder left, right)
 
+    keys = ""
+
+    for i in [0..key.length-1]
+      if i == 0
+        keys = key[i]
+      else
+        keys = "#{keys} #{key[i]}"
+
+    # This is done manually, as you cannot use string interpolation in a
+    # literal object key definition. The following form works, though.
     command = {}
-    command["s #{key}"] = "vim-surround:surround-#{key}"
+    command["s #{keys}"] = "vim-surround:surround-#{key}"
 
     @keymap.add "vim-surround:surround-#{key}",
       ".editor.vim-mode.visual-mode": command
