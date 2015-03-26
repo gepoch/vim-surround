@@ -1,3 +1,6 @@
+## 0.5.0
+* Configurable surround key to support muscle memory in response to  [vim-surround #12](https://github.com/gepoch/vim-surround/issues/12)
+
 ## 0.4.3
 * Fixed bug [vim-surround #13](https://github.com/gepoch/vim-surround/issues/13)
 

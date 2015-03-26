@@ -1,8 +1,10 @@
 class Surround
   configDefaults:
     pairs: ['()', '{}', '[]', '""', "''"]
+    surroundKey: 's'
 
   constructor: () ->
+    @surroundKey = ""
     @curPairs = []
     @commands = {}
     @keymaps = {}
@@ -10,7 +12,16 @@ class Surround
   activate: (state) ->
     @keymap = atom.keymap
 
+    atom.config.observe 'vim-surround.surroundKey', @setSurroundKey
     atom.config.observe 'vim-surround.pairs', @registerPairs
+
+  setSurroundKey: (surroundKey) =>
+    @surroundKey = surroundKey
+    if @curPairs
+      @curPairs.forEach @deregisterPair
+      tmp = @curPairs
+      @curPairs = []
+      @registerPairs tmp
 
   registerPairs: (pairs) =>
     pairs = (x for x in pairs when x.length >0 and x.length %2 == 0)
@@ -24,8 +35,6 @@ class Surround
         @deregisterPair pair
 
     @curPairs = pairs
-
-    console.log @curPairs
 
   registerPair: (pair) =>
     [left, right] = @splitPair(pair)
@@ -65,16 +74,13 @@ class Surround
     # This is done manually, as you cannot use string interpolation in a
     # literal object key definition. The following form works, though.
     keymapArg = {}
-    keymapArg["s #{keys}"] = name
+    keymapArg["#{@surroundKey} #{keys}"] = name
 
     @keymaps[name] = @keymap.add name,
       ".editor.vim-mode.visual-mode": keymapArg
 
   deletePairBindings: (key) ->
     name = @getCommandName(key)
-
-    console.log @commands
-    console.log @keymaps
 
     @commands[name].dispose()
     delete @commands[name]

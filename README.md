@@ -22,6 +22,14 @@ See vim-surround on [github](https://github.com/gepoch/vim-surround) or
 * New in 0.4: Multiple cursors are now supported, and conveniently work just
   like you think they do.
 
+* New in 0.5: Stable configuration changes and configurable surround key!
+
+### Muscle Memory Compatability Note
+
+vim-surround uses a lowercase `s` instead of `S` for surround commands! This is
+configurable in the package settings, if you would like to set it to the
+original keybinding.
+
 ## How to use Surround
 
 For double quotes, highlight the string in visual mode and enter `s "`.
