@@ -1,3 +1,7 @@
+## 0.4.3
+* Fixed bug [vim-surround #13](https://github.com/gepoch/vim-surround/issues/13)
+
+
 ## 0.4.2
 * Fixed bug [vim-surround #11](https://github.com/gepoch/vim-surround/issues/11)
 * Readme updates.

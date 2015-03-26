@@ -3,6 +3,9 @@ class Surround
     pairs: ['()', '{}', '[]', '""', "''"]
 
   constructor: () ->
+    @curPairs = []
+    @commands = {}
+    @keymaps = {}
 
   activate: (state) ->
     @keymap = atom.keymap
@@ -10,21 +13,45 @@ class Surround
     atom.config.observe 'vim-surround.pairs', @registerPairs
 
   registerPairs: (pairs) =>
-    pairs.forEach @registerPair
+    pairs = (x for x in pairs when x.length >0 and x.length %2 == 0)
+
+    for pair in pairs
+      if pair not in @curPairs
+        @registerPair pair
+
+    for pair in @curPairs
+      if pair not in pairs
+        @deregisterPair pair
+
+    @curPairs = pairs
+
+    console.log @curPairs
 
   registerPair: (pair) =>
-    length = pair.length
+    [left, right] = @splitPair(pair)
 
-    left = pair[..(length/2)-1]
-    right = pair[length/2..]
-
-    if right != left
+    if left != right
       @createPairBindings left, "#{left} ", " #{right}"
     @createPairBindings right, left, right
 
+  deregisterPair: (pair) =>
+    [left, right] = @splitPair(pair)
+
+    if left != right
+      @deletePairBindings(left)
+    @deletePairBindings(right)
+
+  splitPair: (pair) ->
+    return [pair[..(pair.length/2)-1], pair[pair.length/2..]]
+
   createPairBindings: (key, left, right) ->
-    atom.commands.add(
-      "atom-text-editor", "vim-surround:surround-#{key}", do (left, right) =>
+    name = @getCommandName key
+
+    if @commands[name]
+      return
+
+    @commands[name] = atom.commands.add(
+      "atom-text-editor", name, do (left, right) =>
         @getSurrounder left, right)
 
     keys = ""
@@ -37,11 +64,25 @@ class Surround
 
     # This is done manually, as you cannot use string interpolation in a
     # literal object key definition. The following form works, though.
-    command = {}
-    command["s #{keys}"] = "vim-surround:surround-#{key}"
+    keymapArg = {}
+    keymapArg["s #{keys}"] = name
 
-    @keymap.add "vim-surround:surround-#{key}",
-      ".editor.vim-mode.visual-mode": command
+    @keymaps[name] = @keymap.add name,
+      ".editor.vim-mode.visual-mode": keymapArg
+
+  deletePairBindings: (key) ->
+    name = @getCommandName(key)
+
+    console.log @commands
+    console.log @keymaps
+
+    @commands[name].dispose()
+    delete @commands[name]
+
+    @keymaps[name].dispose()
+    delete @keymaps[name]
+
+  getCommandName: (key) -> "vim-surround:surround-#{key}"
 
   getSurrounder: (left, right) -> ->
     editor = atom.workspace.getActiveTextEditor()
