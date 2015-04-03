@@ -1,6 +1,6 @@
 {
   "name": "vim-surround",
-  "main": "./lib/surround",
+  "main": "./lib/vim-surround",
   "version": "0.5.0",
   "description": "vim-surround for Atom!",
   "repository": "https://github.com/gepoch/vim-surround",

@@ -1,4 +1,4 @@
-class Surround
+class VimSurround
   configDefaults:
     pairs: ['()', '{}', '[]', '""', "''"]
     surroundKey: 's'
@@ -97,4 +97,5 @@ class Surround
         text = selection.getText()
         selection.insertText "#{left}#{text}#{right}"
 
-module.exports = new Surround()
+
+module.exports = new VimSurround()
