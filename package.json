@@ -8,5 +8,12 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "consumedServices": {
+    "vim-mode": {
+      "versions": {
+        "0.1.0": "consumeVimMode"
+      }
+    }
+  }
 }
