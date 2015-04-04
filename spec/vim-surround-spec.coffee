@@ -2,8 +2,8 @@ helpers = require './spec-helper'
 
 pairs = ['()', '{}', '[]', '""', "''"]
 
-describe "Surround setup", ->
-  [editor, editorElement, vimSurround, configPairs] = []
+describe "Vim Surround activation", ->
+  [editor, editorElement, vimSurround, configPairs, chars, names] = []
 
   beforeEach ->
     atom.config.set('vim-surround.pairs', pairs)
@@ -23,8 +23,10 @@ describe "Surround setup", ->
       editorClassList.add('vim-mode')
       editorClassList.add('visual-mode')
 
+
   describe "when the vim-surround module loads", ->
-    it "Creates a surround command for each configured pair character", ->
+    [chars] = []
+    beforeEach ->
       chars = []
       pairs.forEach (pair) ->
         for i in [0..pair.length-1]
@@ -37,5 +39,14 @@ describe "Surround setup", ->
       commands.forEach (command) ->
         names.push(command.name)
 
+    it "Creates a surround command for each configured pair character", ->
       chars.forEach (char) ->
         expect(names).toContain("vim-surround:surround-#{char}")
+
+    describe "and then deactivates", ->
+      beforeEach ->
+        vimSurround.deactivate()
+
+      # it "should clear out all commands from the registry", ->
+      #   chars.forEach (char) ->
+      #     expect(names).not.toContain("vim-surround:surround-#{char}")

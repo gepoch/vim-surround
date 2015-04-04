@@ -8,9 +8,7 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-    "event-kit": "^0.7.2"
-  },
+  "dependencies": {},
   "consumedServices": {
     "vim-mode": {
       "versions": {

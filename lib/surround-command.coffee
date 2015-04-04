@@ -1,10 +1,12 @@
-{Disposable, CompositeDisposable} = require 'event-kit'
+{CompositeDisposable} = require 'atom'
+
 BaseCommand = require './base-command'
 
-class Surround extends BaseCommand
+module.exports = class SurroundCommand extends BaseCommand
   constructor: (config) ->
     @command = config.commands.surround
     @context = "atom-text-editor.vim-mode.visual-mode"
+    
     super config
 
   getName: (key) -> "surround-#{key}"
@@ -15,5 +17,3 @@ class Surround extends BaseCommand
       editor.selections.forEach (selection) ->
         text = selection.getText()
         selection.insertText "#{left}#{text}#{right}"
-
-module.exports = Surround
