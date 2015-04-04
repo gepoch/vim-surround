@@ -1,4 +1,4 @@
-{CompositeDisposable} = require 'atom'
+{compositedisposable} = require 'atom'
 
 Base = require './base'
 Selector = require './selector'
