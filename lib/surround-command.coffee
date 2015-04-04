@@ -6,7 +6,6 @@ module.exports = class SurroundCommand extends BaseCommand
   constructor: (config) ->
     @command = config.commands.surround
     @context = "atom-text-editor.vim-mode.visual-mode"
-    
     super config
 
   getName: (key) -> "surround-#{key}"
