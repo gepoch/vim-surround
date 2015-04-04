@@ -1,6 +1,6 @@
 {CompositeDisposable} = require 'atom'
 
-SurroundCommand = require './surround-command'
+Surround = require './command/surround'
 
 module.exports =
   config:
@@ -9,16 +9,13 @@ module.exports =
       default: ['()', '{}', '[]', '""', "''"]
       items:
         type: 'string'
-    commands:
-      type: 'object'
-      properties:
-        surround:
-          type: 'string'
-          default: 's'
+    surroundCommand:
+      type: 'string'
+      default: 's'
 
   activate: (state) ->
     @commandClasses = [
-      SurroundCommand
+      Surround
     ]
 
     @configLoop = atom.config.observe 'vim-surround', (config) =>

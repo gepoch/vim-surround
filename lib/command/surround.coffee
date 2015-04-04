@@ -1,10 +1,11 @@
 {CompositeDisposable} = require 'atom'
 
-BaseCommand = require './base-command'
+Base = require './base'
 
-module.exports = class SurroundCommand extends BaseCommand
+module.exports = class Surround extends Base
   constructor: (config) ->
-    @command = config.commands.surround
+    console.log config
+    @command = config.surroundCommand
     @context = "atom-text-editor.vim-mode.visual-mode"
     super config
 

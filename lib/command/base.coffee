@@ -1,6 +1,6 @@
 {CompositeDisposable} = require 'atom'
 
-module.exports = class BaseCommand
+module.exports = class Base
 
   constructor: (config) ->
     @disposables = new CompositeDisposable
@@ -40,13 +40,19 @@ module.exports = class BaseCommand
       else
         keys = "#{keys} #{key[i]}"
 
-    # Making a one-command keymap data structure here.
+    # Making a one-command keymap data structure here. Basically:
+    # "atom-text-editor.vim-mode.visual-mode":
+    #   "s (":
+    #     "vim-surround:surround-("
+
     keymapArg = {}
     fullCommand = "#{@command} #{keys}"
     keymapArg[fullCommand] = name
 
     contextArg = {}
     contextArg[@context] = keymapArg
+
+    console.log contextArg
 
     # Capture the disposable heretom test!
     @disposables.add atom.keymap.add name, contextArg
