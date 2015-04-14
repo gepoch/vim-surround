@@ -24,7 +24,7 @@ class Surround
       @registerPairs tmp
 
   registerPairs: (pairs) =>
-    pairs = (x for x in pairs when x.length >0 and x.length %2 == 0)
+    pairs = (x for x in pairs when x? and x.length >0 and x.length %2 == 0)
 
     for pair in pairs
       if pair not in @curPairs
