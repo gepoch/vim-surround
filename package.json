@@ -9,11 +9,5 @@
     "atom": ">0.50.0"
   },
   "dependencies": {},
-  "consumedServices": {
-    "vim-mode": {
-      "versions": {
-        "0.1.0": "consumeVimMode"
-      }
-    }
-  }
+  "consumedServices": {}
 }

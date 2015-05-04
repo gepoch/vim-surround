@@ -4,7 +4,6 @@ Base = require './base'
 
 module.exports = class Surround extends Base
   constructor: (config) ->
-    console.log config
     @command = config.surroundCommand
     @context = "atom-text-editor.vim-mode.visual-mode"
     super config

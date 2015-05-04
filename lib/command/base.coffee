@@ -52,8 +52,6 @@ module.exports = class Base
     contextArg = {}
     contextArg[@context] = keymapArg
 
-    console.log contextArg
-
     # Capture the disposable heretom test!
     @disposables.add atom.keymap.add name, contextArg
 
