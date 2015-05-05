@@ -1,3 +1,6 @@
+## 0.6.0
+* Upgraded to new config schema. General restructuring.
+
 ## 0.5.1
 * Handle undefined values in config.
 
