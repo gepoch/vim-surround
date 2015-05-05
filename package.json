@@ -10,7 +10,7 @@
     "parentheses"
     "quotes",
     "surround",
-    "vim",
+    "vim"
   ],
   "engines": {
     "atom": ">0.50.0"
