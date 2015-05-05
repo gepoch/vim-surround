@@ -7,7 +7,7 @@
   "license": "MIT",
   "keywords": [
     "pair",
-    "parentheses"
+    "parentheses",
     "quotes",
     "surround",
     "vim"
