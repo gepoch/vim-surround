@@ -5,6 +5,13 @@
   "description": "vim-surround for Atom!",
   "repository": "https://github.com/gepoch/vim-surround",
   "license": "MIT",
+  "keywords": [
+    "pair",
+    "parentheses"
+    "quotes",
+    "surround",
+    "vim",
+  ],
   "engines": {
     "atom": ">0.50.0"
   },
