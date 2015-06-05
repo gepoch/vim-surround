@@ -53,7 +53,7 @@ module.exports = class Base
     contextArg[@context] = keymapArg
 
     # Capture the disposable heretom test!
-    @disposables.add atom.keymap.add name, contextArg
+    @disposables.add atom.keymaps.add name, contextArg
 
   splitPair: (pair) ->
     return [pair[..(pair.length/2)-1], pair[pair.length/2..]]
