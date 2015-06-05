@@ -1,3 +1,6 @@
+## 0.6.1
+* Fixed keymap -> keymaps change. [vim-surround #19](https://github.com/gepoch/vim-surround/issues/19)
+
 ## 0.6.0
 * Upgraded to new config schema. General restructuring.
 
