@@ -1,10 +1,11 @@
 {CompositeDisposable} = require 'atom'
 
 Base = require './base'
+Selector = require './selector'
 
 module.exports = class Delete extends Base
   constructor: (config) ->
-    @command = config.commands.delete
+    @command = config.deleteSurroundCommand
     @context = "atom-text-editor.vim-mode.command-mode"
     super config
 
@@ -12,7 +13,21 @@ module.exports = class Delete extends Base
 
   getRunner: (left, right) -> ->
     editor = atom.workspace.getActiveTextEditor()
+    selector = new Selector(editor, left, right)
+
     editor.transact ->
+      cursorPos = editor.getCursorBufferPosition()
+
+      selector.inside().select()
       editor.selections.forEach (selection) ->
         text = selection.getText()
-        selection.insertText "#{left}#{text}#{right}"
+
+        # restore cursore and select text with surrounding keys
+        editor.setCursorBufferPosition(cursorPos)
+        selector.outside().select()
+
+        editor.selections.forEach (selection) ->
+          selection.insertText text
+
+      # restore cursore
+      editor.setCursorBufferPosition(cursorPos)

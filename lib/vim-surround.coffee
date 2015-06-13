@@ -1,6 +1,7 @@
 {CompositeDisposable} = require 'atom'
 
 Surround = require './command/surround'
+Delete = require './command/delete'
 
 module.exports =
   config:
@@ -9,13 +10,16 @@ module.exports =
       default: ['()', '{}', '[]', '""', "''"]
       items:
         type: 'string'
+    deleteSurroundCommand:
+      type: 'string'
+      default: 'd'
     surroundCommand:
       type: 'string'
       default: 's'
 
   activate: (state) ->
     @commandClasses = [
-      Surround
+      Surround, Delete
     ]
 
     @configLoop = atom.config.observe 'vim-surround', (config) =>
