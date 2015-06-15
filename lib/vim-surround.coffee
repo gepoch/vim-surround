@@ -2,6 +2,7 @@
 
 Surround = require './command/surround'
 Delete = require './command/delete'
+Change = require './command/change'
 
 module.exports =
   config:
@@ -10,16 +11,19 @@ module.exports =
       default: ['()', '{}', '[]', '""', "''"]
       items:
         type: 'string'
+    changeSurroundCommand:
+      type: 'string'
+      default: 'c s'
     deleteSurroundCommand:
       type: 'string'
-      default: 'd'
+      default: 'd s'
     surroundCommand:
       type: 'string'
       default: 's'
 
   activate: (state) ->
     @commandClasses = [
-      Surround, Delete
+      Surround, Delete, Change
     ]
 
     @configLoop = atom.config.observe 'vim-surround', (config) =>

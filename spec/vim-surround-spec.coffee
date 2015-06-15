@@ -1,6 +1,5 @@
 helpers = require './spec-helper'
 
-
 describe "Vim Surround activation", ->
   [editor, pairs, editorElement, vimSurround, configPairs, chars, names] = []
 
