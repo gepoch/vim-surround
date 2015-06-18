@@ -1,3 +1,6 @@
+## 0.7.0
+* Change surround and delete surround implemented. Thanks to @shemerey :D !
+
 ## 0.6.1
 * Fixed keymap -> keymaps change. [vim-surround #19](https://github.com/gepoch/vim-surround/issues/19)
 
