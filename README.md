@@ -24,6 +24,8 @@ See vim-surround on [github](https://github.com/gepoch/vim-surround) or
 
 * New in 0.5: Stable configuration changes and configurable surround key!
 
+* New in 0.7: Change surround and delete surround added.
+
 ### Muscle Memory Compatability Note
 
 vim-surround uses a lowercase `s` instead of `S` for surround commands! This is
