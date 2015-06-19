@@ -32,6 +32,8 @@ original keybinding.
 
 ## How to use Surround
 
+### Surrounding
+
 For double quotes, highlight the string in visual mode and enter `s "`.
 
 ```
@@ -55,6 +57,24 @@ Hello world -> (Hello world)
 ```
 Hello world -> ( Hello world )
 ```
+
+### Changing Surrounding Pairs
+
+Suppose I want to make double quotes into single quotes. To do this, I should
+put my cursor inside the double quotes in question and enter `c s " '`
+
+```
+"Hello world" -> 'Hello world'
+```
+
+### Deleting Surrounding Pairs
+
+To delete the single quotes, place your cursor inside of them and enter `d s '`
+
+```
+'Hello world' -> Hello world
+```
+### Configuration
 
 Currently, the following pairs work out of the box!:
 
@@ -90,6 +110,6 @@ Hello world -> {% Hello world %}
 
 ### TODO
 
-- [ ] Implement deleting surrounding pairs with `d s`
-- [ ] Implement changing surrounding pairs with `c s`
+- [x] Implement deleting surrounding pairs with `d s`
+- [x] Implement changing surrounding pairs with `c s`
 - [ ] Intelligent tag surrounding/deleting/replacing with `s <q>` and friends.

@@ -1,3 +1,6 @@
+## 0.7.1
+* Propagate README changes.
+
 ## 0.7.0
 * Change surround and delete surround implemented. Thanks to @shemerey :D !
 
