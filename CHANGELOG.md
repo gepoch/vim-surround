@@ -1,3 +1,6 @@
+## 0.7.2
+* Fixed problems cause by vim-mode changing "command-mode" to "normal-mode".
+
 ## 0.7.1
 * Propagate README changes.
 
