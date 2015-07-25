@@ -20,6 +20,9 @@ module.exports =
     surroundCommand:
       type: 'string'
       default: 's'
+    deleteCommand:
+      type: 'string'
+      default: 'd s'
 
   activate: (state) ->
     @commandClasses = [
@@ -37,5 +40,6 @@ module.exports =
         @commands.push command
         @disposables.add command.disposables
 
-  deactivate: () ->
-    @disposables.dispose()
+  consumeVimMode: (vimMode) -> @vimMode = vimMode
+
+  deactivate: () -> @disposables.dispose()
