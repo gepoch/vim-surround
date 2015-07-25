@@ -6,7 +6,7 @@ Selector = require './selector'
 module.exports = class Change
   constructor: (config) ->
     @command = config.changeSurroundCommand
-    @context = "atom-text-editor.vim-mode.command-mode"
+    @context = "atom-text-editor.vim-mode.normal-mode"
     @disposables = new CompositeDisposable
     @curPairs = []
     @curPairsWithTarget = []

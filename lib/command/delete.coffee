@@ -6,7 +6,7 @@ Selector = require './selector'
 module.exports = class Delete extends Base
   constructor: (config) ->
     @command = config.deleteSurroundCommand
-    @context = "atom-text-editor.vim-mode.command-mode"
+    @context = "atom-text-editor.vim-mode.normal-mode"
     super config
 
   getName: (key) -> "delete-#{key}"
