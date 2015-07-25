@@ -27,7 +27,8 @@ See vim-surround on [github](https://github.com/gepoch/vim-surround) or
 * New in 0.7: Change surround and delete surround added.
 
 * New in 0.8: Tentative support for
-  [vim-mode-next](https://atom.io/packages/vim-mode-next). See #28
+  [vim-mode-next](https://atom.io/packages/vim-mode-next). See
+  [#28](https://github.com/gepoch/vim-surround/issues/28).
 
 ### Muscle Memory Compatability Note
 
