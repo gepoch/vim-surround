@@ -1,7 +1,8 @@
 vimModePath = atom.packages.resolvePackagePath('vim-mode') or
               atom.packages.resolvePackagePath('vim-mode-next')
 
-{SelectInsideQuotes, SelectInsideBrackets} = require "#{vimModePath}/lib/text-objects"
+{SelectInsideQuotes, SelectInsideBrackets} = require(
+  "#{vimModePath}/lib/text-objects")
 
 module.exports = class Selector
   constructor: (@editor, left, right) ->

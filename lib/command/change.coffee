@@ -33,7 +33,8 @@ module.exports = class Change
           name = "vim-surround:#{@getName(key, targetKey)}"
 
           unless pair == target
-            @disposables.add atom.commands.add @context, name, @getRunner pair, target
+            @disposables.add(
+              atom.commands.add @context, name, @getRunner pair, target)
 
           keymapArg = {}
           fullCommand = "#{@command} #{key} #{targetKey}"
