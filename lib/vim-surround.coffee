@@ -1,4 +1,4 @@
-{CompositeDisposable} = require 'atom'
+{Disposable, CompositeDisposable} = require 'atom'
 
 Surround = require './command/surround'
 Delete = require './command/delete'
@@ -26,7 +26,9 @@ module.exports =
 
   activate: (state) ->
     @commandClasses = [
-      Surround, Delete, Change
+      Surround
+      Delete
+      Change
     ]
 
     @configLoop = atom.config.observe 'vim-surround', (config) =>
@@ -40,6 +42,9 @@ module.exports =
         @commands.push command
         @disposables.add command.disposables
 
-  consumeVimMode: (vimMode) -> @vimMode = vimMode
+  consumeVimModeV1: (vimMode) ->
+    @vimMode = vimMode
+    new Disposable -> return
 
-  deactivate: () -> @disposables.dispose()
+  deactivate: () ->
+    @disposables.dispose()

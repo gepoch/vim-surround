@@ -1,69 +1,79 @@
-helpers = require './spec-helper'
-
-describe "Vim Surround activation", ->
-  [editor, pairs, editorElement, vimSurround, configPairs, chars, names] = []
+describe "vim-surround", ->
+  [editor, editorElement, workspaceElement, pairs, vimSurround, chars,
+  names] = []
 
   beforeEach ->
-    pairs = ['()', '{}', '[]', '""', "''"]
-    atom.config.set('vim-surround.pairs', pairs)
+    workspaceElement = atom.views.getView(atom.workspace)
 
-    vimSurround = atom.packages.loadPackage('vim-surround')
-    vimSurround.activate()
+    waitsForPromise ->
+      atom.workspace.open()
 
-    configPairs = atom.config.get('vim-surround.pairs')
+    waitsForPromise ->
+      atom.packages.activatePackage('vim-surround')
 
-    helpers.getEditorElement (element) ->
-      editorElement = element
-      editor = editorElement.getModel()
+    waitsForPromise ->
+      atom.packages.activatePackage('vim-mode')
 
-      editorClassList = editorElement.classList
+    waitsForPromise ->
+      atom.packages.activatePackage('status-bar')
 
-      editorClassList.add('editor')
-      editorClassList.add('vim-mode')
-      editorClassList.add('visual-mode')
+    runs ->
+      editor = atom.workspace.getActiveTextEditor()
+      editorElement = atom.views.getView(editor)
+      pairs = ['()', '{}', '[]', '""', "''"]
+      atom.config.set('vim-surround.pairs', pairs)
 
-
-  describe "When the vim-surround module loads", ->
-    beforeEach ->
+      commands = atom.commands.findCommands target: editorElement
+      names = (command.name for command in commands when \
+               command.name.substring(0,12) == 'vim-surround')
       chars = []
       pairs.forEach (pair) ->
         for i in [0..pair.length-1]
           char = pair[i]
           chars.push char unless char in chars
 
-      commands = atom.commands.findCommands target: editorElement
-
-      names = []
-      commands.forEach (command) ->
-        names.push(command.name)
-
-    it "Creates a surround command for each configured pair character", ->
-      chars.forEach (char) ->
-        expect(names).toContain("vim-surround:surround-#{char}")
-
-    describe "and the list of pairs changes", ->
+  describe ".activate", ->
+    describe "When the config changes", ->
       beforeEach ->
         pairs = ['()', '{}', '[]', '""', "-+"]
         atom.config.set('vim-surround.pairs', pairs)
         commands = atom.commands.findCommands target: editorElement
-        names = (command.name for command in commands)
+        names = (command.name for command in commands when \
+                 command.name.substring(0,12) == 'vim-surround')
         chars = []
         pairs.forEach (pair) ->
           for i in [0..pair.length-1]
             char = pair[i]
             chars.push char unless char in chars
 
-      it "should add any new pairs.", ->
-        chars.forEach (char) ->
-          expect(names).toContain("vim-surround:surround-#{char}")
+      describe "in normal-mode", ->
+        it "should add any new delete commands.", ->
+          chars.forEach (char) ->
+            # expect(names).toContain("vim-surround:surround-#{char}")
+            expect(names).toContain("vim-surround:delete-#{char}")
 
-      it "should remove any old pairs.", ->
-        expect(names).not.toContain("vim-surround:surround-'")
+        it "should remove any old delete commands.", ->
+          # expect(names).not.toContain("vim-surround:surround-'")
+          expect(names).not.toContain("vim-surround:delete-'")
 
-    describe "and then deactivates", ->
+      describe "in visual-mode", ->
+        beforeEach ->
+          atom.commands.dispatch(
+            editorElement, "vim-mode:activate-characterwise-visual-mode")
+          commands = atom.commands.findCommands target: editorElement
+          names = (command.name for command in commands when \
+                   command.name.substring(0,12) == 'vim-surround')
 
+        it "should add any new surround commands.", ->
+          chars.forEach (char) ->
+            expect(names).toContain("vim-surround:surround-#{char}")
+
+        it "should remove any old surround commands.", ->
+          expect(names).not.toContain("vim-surround:surround-'")
+
+    describe ".deactivate", ->
       beforeEach ->
-        vimSurround.deactivate()
+        atom.packages.getActivePackage('vim-surround').deactivate()
         commands = atom.commands.findCommands target: editorElement
         names = (command.name for command in commands)
 
