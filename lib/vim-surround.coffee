@@ -8,7 +8,7 @@ module.exports =
   config:
     pairs:
       type: 'array'
-      default: ['()', '{}', '[]', '""', "''"]
+      default: ['()', '{}', '[]', '""', "''", "``"]
       items:
         type: 'string'
     changeSurroundCommand:
