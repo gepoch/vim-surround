@@ -1,3 +1,6 @@
+## 0.8.1
+* Backticks enabled by default.
+
 ## 0.8.0
 * Tentative support for
   [vim-mode-next](https://atom.io/packages/vim-mode-next). See
