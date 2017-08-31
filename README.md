@@ -1,6 +1,6 @@
 # Vim Surround for Atom [![Build Status](https://travis-ci.org/gepoch/vim-surround.svg?branch=master)](https://travis-ci.org/gepoch/vim-surround)
 
-### NOTE: vim-surround for atom is obsolted by vim-mode-plus. See [40](https://github.com/gepoch/vim-surround/issues/40) for more information.
+### NOTE: vim-surround for atom is obsoleted by vim-mode-plus. See [40](https://github.com/gepoch/vim-surround/issues/40) for more information.
 
 Surround is an implementation of vim-surround for the [atom](http://atom.io)
 editor, creating a vim-surround with the power of Atom!
